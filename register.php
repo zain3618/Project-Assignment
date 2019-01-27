@@ -37,15 +37,15 @@
 <div class="Nav">
 
     <ul>
-        <li> <a href="index.html"> Index </a> </li>
+        <li> <a href="index.php"> Index </a> </li>
         <li>|</li>
         <li> <a href="about.html"> About </a> </li>
         <li>|</li>
-        <li> <a href="contact.html"> Contact </a> </li>
+        <li> <a href="contact.php"> Contact </a> </li>
         <li>|</li>
-        <li> <a href="register.html"> <u>Register</u> </a> </li>
+        <li> <a href="register.php"> <u>Register</u> </a> </li>
         <li>|</li>
-        <li> <a href="forgotpassword.html"> Forgot password </a> </li>
+        <li> <a href="forgotpassword.php"> Forgot password </a> </li>
     </ul>
 
 </div>
@@ -65,7 +65,7 @@
         <span class="form-btn-text">Log In</span>
     </a>
 
-    <a href="forgotpassword.html" class="form-pass">Forgot Password?</a>
+    <a href="forgotpassword.php" class="form-pass">Forgot Password?</a>
 </div>
 </body>
 </html>

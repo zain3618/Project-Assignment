@@ -45,15 +45,15 @@
 <div class="Nav">
 
     <ul >
-        <li> <a href="index.html"> <u>Index</u> </a> </li>
+        <li> <a href="index.php"> <u>Index</u> </a> </li>
         <li>|</li>
         <li> <a href="about.html"> About </a> </li>
         <li>|</li>
-        <li> <a href="contact.html"> Contact </a> </li>
+        <li> <a href="contact.php"> Contact </a> </li>
         <li>|</li>
-        <li> <a href="register.html"> Register </a> </li>
+        <li> <a href="register.php"> Register </a> </li>
         <li>|</li>
-        <li> <a href="forgotpassword.html"> Forgot password </a> </li>
+        <li> <a href="forgotpassword.php"> Forgot password </a> </li>
     </ul>
 
 </div>
