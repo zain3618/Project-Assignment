@@ -75,3 +75,30 @@ function getPro(){
         ";
     }
 }
+
+function add_user()
+{
+    $query = "SELECT * FROM `table_name` WHERE `submission_id` = 'e" . $submissionData["submission_id"] . "'";
+    $sqlsearch = mysqli_query($query);
+    $resultcount = mysqli_numrows($sqlsearch);
+
+
+    if ($resultcount > 0) {
+
+        mysqli_query("UPDATE `table_name` SET
+                        `name` = '" . $submissionData["name"] . "',
+                        `email` = '" . $submissionData["email"] . "',
+                        `message` = '" . $submissionData["message"] . "'
+                        WHERE `submission_id` = '" . $submissionData["submission_id"] . "'") or die(mysqli_error());
+
+    } else {
+
+        mysqli_query("INSERT INTO `table_name` (submission_id, formID, name, email, message)
+                               VALUES ('" . $submissionData["submission_id"] . "',
+									   '" . $submissionData["formID"] . "', 
+									   '" . $submissionData["name"] . "',
+									   '" . $submissionData["email"] . "',
+									   '" . $submissionData["message"] . "' ) ") or die(mysqli_error());
+
+    }
+}

@@ -14,7 +14,7 @@
 <body>
 
    <?php require "header.php"?>
-
+    <?php require "admin/functions.php"?>
 
 <div class="form-area">
 
@@ -24,7 +24,7 @@
 
     <h2>Sign Up</h2>
 
-    <form>
+    <form action="/database/" method="post">
 
     <p>Enter Your Email:</p>
     <input type="email" class="forminput" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
