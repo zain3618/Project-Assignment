@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styling.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
 
 
@@ -35,11 +35,13 @@
             <ul>
                 <li> <a href="index.php"> Index </a> </li>
                 <li>|</li>
-                <li> <a href="about.html"> About </a> </li>
+                <li> <a href="about.php"> About </a> </li>
                 <li>|</li>
                 <li> <a href="contact.php"> Contact </a> </li>
                 <li>|</li>
                 <li> <a href="register.php"> Register </a> </li>
+                <li>|</li>
+                <li> <a href="login.php"> Login </a> </li>
                 <li>|</li>
                 <li> <a href="forgotpassword.php"> <u>Forgot password</u> </a> </li>
 
