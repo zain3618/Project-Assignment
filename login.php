@@ -26,9 +26,9 @@
             </div>
         </div>
 
-            <div class="PageTitle">
-                <h1> Register </h1>
-            </div>
+        <div class="PageTitle">
+            <h1> Register </h1>
+        </div>
 
     </div>
 
@@ -109,17 +109,17 @@
 
     <form>
 
-    <p>Enter Your Email:</p>
-    <input type="email" class="forminput" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
-    <p>Enter Your Password:</p>
-    <input type="text" class="forminput" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
-<!--
-    <a href="register.php" class ='form-btn'>
-        <span class="form-btn-text">Sign Up</span>
-        <span class="form-btn-text">Log In</span>
-    </a>
--->
-<input type="submit">
+        <p>Enter Your Email:</p>
+        <input type="email" class="forminput" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
+        <p>Enter Your Password:</p>
+        <input type="text" class="forminput" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
+        <!--
+            <a href="register.php" class ='form-btn'>
+                <span class="form-btn-text">Sign Up</span>
+                <span class="form-btn-text">Log In</span>
+            </a>
+        -->
+        <input type="submit">
 
     </form>
 
