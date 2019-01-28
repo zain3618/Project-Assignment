@@ -17,8 +17,31 @@
 </head>
 
 <body>
-
 <?php require "header.php"?>
+<?php require "server/functions.php";?>
+
+<div>
+    <h1 style="color: white;margin-top: 50px;">Current Users Registered</h1>
+    <table style="border: 1px solid white; color: wheat;margin-left: 10px;" border="1">
+        <tr>
+            <td>ID</td>
+            <td>Email</td>
+            <?php getUsers();?>
+        </tr>
+    </table>
+</div>
+<div>
+    <h1 style="color: white;margin-top: 50px;">Recipes Currently on Site</h1>
+    <table border="1" style="border: 1px solid white; color: wheat;margin-left: 10px;">
+        <tr>
+            <td>ID</td>
+            <td>Recipe</td>
+            <td>Category</td>
+            <td>Description</td>
+            <?php getRecipes();?>
+        </tr>
+    </table>
+</div>
 
 </body>
 </html>
