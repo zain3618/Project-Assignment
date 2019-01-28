@@ -9,48 +9,8 @@
 </head>
 <body>
 
+<?php require "header.php"?>
 
-<header>
-
-    <div class="Top-Row">
-
-        <div id="Strip">
-
-            <div class="Logo">
-
-                <img src="img/Logo.png" />
-
-            </div>
-
-        </div>
-
-        <div class="PageTitle">
-            <h1> Contact </h1>
-        </div>
-
-        <div class="Nav">
-
-            <ul>
-                <li> <a href="index.php"> Index </a> </li>
-                <li>|</li>
-                <li> <a href="about.php"> About </a> </li>
-                <li>|</li>
-                <li> <a href="contact.php"> <u> Contact</u> </a> </li>
-                <li>|</li>
-                <li> <a href="register.php"> Register </a> </li>
-                <li>|</li>
-                <li> <a href="login.php"> Login </a> </li>
-                <li>|</li>
-                <li> <a href="forgotpassword.php"> Forgot password </a> </li>
-
-            </ul>
-
-        </div>
-
-
-    </div>
-
-</header>
 
 <div class ="profile">
     <img src="img/Zain.jpg">
