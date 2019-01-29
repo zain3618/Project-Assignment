@@ -19,7 +19,7 @@
 <body>
 
 <?php require "header.php"?>
-<?php require "admin/functions.php";?>
+<?php require "server/functions.php";?>
 
 <div>
     <h1 style="color: white;margin-top: 50px;">Current Users Registered</h1>

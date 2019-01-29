@@ -22,9 +22,12 @@
         <h2>Find your Account</h2>
         <h3>Enter your desired email</h3>
         <p>Email</p>
-        <input type="email" class="fpinput">
 
-        <a href="#" class="fp-next">Next</a>
+        <form action="register.php">
+        <input type="email" class="fpinput" pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$">
+            <input type="submit">
+        <!--<a href="register.php" class="fp-next">Next</a>-->
+        </form>
     </div>
 
 

@@ -76,20 +76,22 @@ function getPro(){
     }
 }
 
-function add_user()
+/*function add_user()
 {
-    $query = "SELECT * FROM `table_name` WHERE `submission_id` = 'e" . $submissionData["submission_id"] . "'";
+    if(isset($_POST['submit'])) {
+        $email = $_POST['Email'];
+        $password = $_POST[Password];
+    }
+
+    $query = "SELECT * FROM `users` WHERE `user_email` =  $email ";
     $sqlsearch = mysqli_query($query);
     $resultcount = mysqli_numrows($sqlsearch);
 
 
+
     if ($resultcount > 0) {
 
-        mysqli_query("UPDATE `table_name` SET
-                        `name` = '" . $submissionData["name"] . "',
-                        `email` = '" . $submissionData["email"] . "',
-                        `message` = '" . $submissionData["message"] . "'
-                        WHERE `submission_id` = '" . $submissionData["submission_id"] . "'") or die(mysqli_error());
+        echo "Email already exists";
 
     } else {
 
@@ -101,4 +103,4 @@ function add_user()
 									   '" . $submissionData["message"] . "' ) ") or die(mysqli_error());
 
     }
-}
+}*/
