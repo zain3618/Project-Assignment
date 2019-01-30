@@ -3,11 +3,12 @@ session_start();
 include ('db_connection.php');
 $error_msg = '';
 if(isset($_POST['login'])){
-    $email = $_POST['user_email'];
-    $pass = $_POST['user_pass'];
-    $sel_user = "select * from admins where user_email='$email' AND user_pass='$pass'";
+    $email = $_POST["user_email"];
+    $pass = $_POST["user_password"];
+    $sel_user = "select * from users where user_email='$email' AND user_password='$pass'";
     $run_user = mysqli_query($con, $sel_user);
     $check_user = mysqli_num_rows($run_user);
+
     if($check_user==0){
         $error_msg = 'Password or Email is wrong, try again';
     }
@@ -15,10 +16,10 @@ if(isset($_POST['login'])){
         $_SESSION['user_email'] = $email;
         if(!empty($_POST['remember'])) {
             setcookie('user_email', $email, time() + (10 * 365 * 24 * 60 * 60));
-            setcookie('user_pass', $pass, time() + (10 * 365 * 24 * 60 * 60));
+            setcookie('user_password', $pass, time() + (10 * 365 * 24 * 60 * 60));
         } else {
             setcookie('user_email','' );
-            setcookie('user_pass', '');
+            setcookie('user_password', '');
         }
         header('location:index.php?logged_in=You have successfully logged in!');
     }
@@ -44,8 +45,8 @@ if(isset($_POST['login'])){
         <div><?php echo $error_msg;?></div>
         <input type="text" id="user_email" name="user_email"
                value="<?php echo @$_COOKIE['user_email']?>" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" id="user_pass" name="user_pass"
-               value="<?php echo @$_COOKIE['user_pass']?>" class="form-control" placeholder="Password" required><br>
+        <input type="password" id="user_password" name="user_password"
+               value="<?php echo @$_COOKIE['user_password']?>" class="form-control" placeholder="Password" required><br>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="remember" name="remember">
             <label class="form-check-label" for="remember">Remember me</label>

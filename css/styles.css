@@ -78,6 +78,12 @@ body {
 
 .Logo {
     margin-left: 10%;
+
+}
+
+.Logo img{
+    width: auto;
+    height: auto;
 }
 
 .Recipes h1{

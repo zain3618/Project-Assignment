@@ -17,7 +17,7 @@ if(!isset($_SESSION['user_email'])){
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bangers|Old+Standard+TT">
-    <title>TechBox Admin Panel</title>
+    <title>Foodfest Admin Panel</title>
     <style>
         * {
             font-family: 'Old Standard TT', serif;
@@ -33,12 +33,12 @@ if(!isset($_SESSION['user_email'])){
         <ul class="list-unstyled components">
             <li>
                 <a href="index.php?insert_product">
-                    <i class="fas fa-plus"></i> Insert New Product
+                    <i class="fas fa-plus"></i> Insert New Recipe
                 </a>
             </li>
             <li>
                 <a href="index.php?view_products">
-                    <i class="fas fa-sitemap"></i> View All Products
+                    <i class="fas fa-sitemap"></i> View All Recipes
                 </a>
             </li>
             <li>
@@ -53,24 +53,16 @@ if(!isset($_SESSION['user_email'])){
             </li>
             <li>
                 <a href="index.php?insert_brand">
-                    <i class="fas fa-plus"></i> Insert New Brand
+                    <i class="fas fa-plus"></i> Insert New Type
                 </a>
             </li>
             <li>
                 <a href="index.php?view_brands">
-                    <i class="fas fa-toolbox"></i> View All Brands</a>
+                    <i class="fas fa-toolbox"></i> View All Types</a>
             </li>
             <li>
                 <a href="index.php?view_customers">
                     <i class="fa fa-user-tie"></i> View Customers</a>
-            </li>
-            <li>
-                <a href="index.php?view_orders">
-                    <i class="fa fa-shopping-bag"></i> View Orders</a>
-            </li>
-            <li>
-                <a href="index.php?view_payments">
-                    <i class="fa fa-credit-card"></i> View Payments</a>
             </li>
             <li>
                 <a href="logout.php">
