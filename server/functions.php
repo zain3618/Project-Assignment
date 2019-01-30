@@ -32,7 +32,7 @@ function getRecipes(){
     }
 }
 
-function getPro(){
+/*function getPro(){
     global $con;
     $getProQuery = '';
     if(!isset($_GET['cat']) && !isset($_GET['brand']) && !isset($_GET['search'])){
@@ -71,7 +71,7 @@ function getPro(){
                 </div>
         ";
 
-}
+}*/
 
 /*function add_user()
 {

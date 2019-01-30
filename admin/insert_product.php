@@ -6,9 +6,9 @@ if(!isset($_SESSION['user_email'])){
 if(isset($_POST['insert_pro'])){
     //getting text data from the fields
     $pro_title = $_POST['recipe_name'];
+    $pro_desc = $_POST['recipe_desc'];
     $pro_cat = $_POST['recipe_cat'];
     $pro_brand = $_POST['recipe_type'];
-    $pro_desc = $_POST['recipe_desc'];
 
     //getting image from the field
     $pro_image = $_FILES['recipe_images']['name'];
@@ -45,7 +45,7 @@ if(isset($_POST['insert_pro'])){
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-list-alt"></i></div>
                 </div>
-                <select class="form-control" id="cat_id" name="pro_cat">
+                <select class="form-control" id="recipe_cat" name="recipe_cat">
                     <option>Select Category</option>
                     <?php
                     $getCatsQuery = "select * from categories";
@@ -53,7 +53,7 @@ if(isset($_POST['insert_pro'])){
                     while($row = mysqli_fetch_assoc($getCatsResult)){
                         $cat_id = $row['cat_id'];
                         $cat_title = $row['cat_title'];
-                        echo "<option value='$cat_id'>$cat_title</option>";
+                        echo "<option value='$cat_title'>$cat_title</option>";
                     }
                     ?>
                 </select>
@@ -77,7 +77,7 @@ if(isset($_POST['insert_pro'])){
                     while($row = mysqli_fetch_assoc($getBrandsResult)){
                         $brand_id = $row['type_id'];
                         $brand_title = $row['type_title'];
-                        echo "<option value='$brand_id'>$brand_title</option>";
+                        echo "<option value='$brand_title'>$brand_title</option>";
                     }
                     ?>
                 </select>
