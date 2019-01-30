@@ -12,7 +12,7 @@ body {
 }
 
 #Strip{
-    height: 100px;
+    height: 30%;
     border-style: solid;
     border-color: saddlebrown;
     background-color: saddlebrown;
@@ -503,8 +503,4 @@ body {
 {
     color: white;
     font-family: "Segoe UI Light";
-}
-
-.Footer{
-    background-color: chocolate;
 }
