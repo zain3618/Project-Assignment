@@ -5,38 +5,36 @@ if(!isset($_SESSION['user_email'])){
 
 if(isset($_POST['insert_pro'])){
     //getting text data from the fields
-    $pro_title = $_POST['pro_title'];
-    $pro_cat = $_POST['pro_cat'];
-    $pro_brand = $_POST['pro_brand'];
-    $pro_price = $_POST['pro_price'];
-    $pro_desc = $_POST['pro_desc'];
-    $pro_keywords = $_POST['pro_keywords'];
+    $pro_title = $_POST['recipe_title'];
+    $pro_cat = $_POST['recipe_cat'];
+    $pro_brand = $_POST['recipe_type'];
+    $pro_desc = $_POST['recipe_desc'];
 
     //getting image from the field
     $pro_image = $_FILES['pro_image']['name'];
     $pro_image_tmp = $_FILES['pro_image']['tmp_name'];
     move_uploaded_file($pro_image_tmp,"product_images/$pro_image");
 
-    $insert_product = "insert into products (pro_cat, pro_brand,pro_title,pro_price,pro_desc,pro_image,pro_keywords) 
-                  VALUES ('$pro_cat','$pro_brand','$pro_title','$pro_price','$pro_desc','$pro_image','$pro_keywords');";
+    $insert_product = "insert into recipe (recipe_cat, recipe_type,recipe_name,recipe_desc,recipe_image) 
+                  VALUES ('$pro_cat','$pro_brand','$pro_title','$pro_desc','$pro_image');";
     $insert_pro = mysqli_query($con, $insert_product);
     if($insert_pro){
         header("location: ".$_SERVER['PHP_SELF']);
     }
 }
 ?>
-<h1 class="text-center my-4"><i class="fas fa-plus fa-md"></i> <span class="d-none d-sm-inline"> Add New </span> Product </h1>
+<h1 class="text-center my-4"><i class="fas fa-plus fa-md"></i> <span class="d-none d-sm-inline"> Add New </span> Item </h1>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
-            <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Product </span> Title:</label>
+            <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Item </span> Name:</label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-file-signature"></i></div>
                 </div>
-                <input type="text" class="form-control" id="pro_title" name="pro_title" placeholder="Enter Product Title" >
+                <input type="text" class="form-control" id="recipe_name" name="pro_title" placeholder="Enter Recipe Name" >
             </div>
         </div>
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
@@ -47,7 +45,7 @@ if(isset($_POST['insert_pro'])){
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-list-alt"></i></div>
                 </div>
-                <select class="form-control" id="pro_cat" name="pro_cat">
+                <select class="form-control" id="cat_id" name="pro_cat">
                     <option>Select Category</option>
                     <?php
                     $getCatsQuery = "select * from categories";
@@ -64,21 +62,21 @@ if(isset($_POST['insert_pro'])){
     </div>
     <div class="row my-3">
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
-            <label for="pro_brand" class="float-md-right"> <span class="d-sm-none d-md-inline"> Product </span> Brand:</label>
+            <label for="pro_brand" class="float-md-right"> <span class="d-sm-none d-md-inline"> Recipe </span> Type:</label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-stamp"></i></div>
                 </div>
-                <select class="form-control" id="pro_brand" name="pro_brand">
-                    <option>Select Brand</option>
+                <select class="form-control" id="recipe_type" name="pro_brand">
+                    <option>Select Type</option>
                     <?php
-                    $getBrandsQuery = "select * from brands";
+                    $getBrandsQuery = "select * from types";
                     $getBrandsResult = mysqli_query($con,$getBrandsQuery);
                     while($row = mysqli_fetch_assoc($getBrandsResult)){
-                        $brand_id = $row['brand_id'];
-                        $brand_title = $row['brand_title'];
+                        $brand_id = $row['type_id'];
+                        $brand_title = $row['type_title'];
                         echo "<option value='$brand_id'>$brand_title</option>";
                     }
                     ?>
@@ -93,23 +91,23 @@ if(isset($_POST['insert_pro'])){
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="far fa-image"></i></div>
                 </div>
-                <input class="form-control" type="file" id="pro_image" name="pro_image">
+                <input class="form-control" type="file" id="recipe_image" name="pro_image">
             </div>
         </div>
     </div>
     <div class="row my-3">
-        <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
+<!--        <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
             <label for="pro_price" class="float-md-right"> <span class="d-sm-none d-md-inline"> Product </span> Price:</label>
-        </div>
-        <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
+        </div>-->
+<!--        <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-money-bill"></i></div>
                 </div>
                 <input class="form-control" id="pro_price" name="pro_price" placeholder="Enter Product Price">
             </div>
-        </div>
-        <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
+        </div>-->
+<!--        <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
             <label for="pro_kw" class="float-md-right"><span class="d-sm-none d-md-inline"> Product </span> Keyword:</label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4 mt-3 mt-lg-0">
@@ -117,9 +115,9 @@ if(isset($_POST['insert_pro'])){
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fas fa-key"></i></div>
                 </div>
-                <input class="form-control" type="text" id="pro_keywords" name="pro_keywords" placeholder="Enter Product Keywords">
+                <input class="form-control" type="text" id="recipe_keywords" name="pro_keywords" placeholder="Enter Product Keywords">
             </div>
-        </div>
+        </div>-->
     </div>
     <div class="row my-3">
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
@@ -130,7 +128,7 @@ if(isset($_POST['insert_pro'])){
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="far fa-comment-alt"></i></div>
                 </div>
-                <textarea class="form-control" type="file" id="pro_desc" name="pro_desc" placeholder="Enter Product Detail"></textarea>
+                <textarea class="form-control" type="file" id="recipe_desc" name="pro_desc" placeholder="Enter Product Detail"></textarea>
             </div>
         </div>
     </div>
