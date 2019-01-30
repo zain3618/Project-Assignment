@@ -28,7 +28,7 @@ if(!isset($_SESSION['user_email'])){
 <div class="wrapper">
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3><img src="../media/logo.png"> Admin Panel</h3>
+            <h3><img src="/admin/media/logo.png"> Admin Panel</h3>
         </div>
         <ul class="list-unstyled components">
             <li>

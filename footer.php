@@ -6,6 +6,8 @@
 
     <div class="Footer">
 
+        <div id="BottomStrip">
+
     <div class="container">
         <div class="row ftr-header">
             <div class="col-md-3"><h3><span class="clr-2">Quick </span>link</h3></div>
@@ -43,6 +45,8 @@
             </div>
 
         </div>
+
+    </div>
 
     </div>
 
