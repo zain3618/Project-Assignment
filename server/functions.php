@@ -16,11 +16,11 @@ function getUsers(){
 }
 function getRecipes(){
     global $con;
-    $getRecipesQuery = "select * from recipes";
+    $getRecipesQuery = "select * from recipe";
     $getRecipesResult = mysqli_query($con,$getRecipesQuery);
     while($row = mysqli_fetch_assoc($getRecipesResult)){
         $recipe_id = $row['recipe_id'];
-        $recipe_name = $row['recide_name'];
+        $recipe_name = $row['recipe_name'];
         $recipe_cat = $row['recipe_cat'];
         $recipe_desc = $row['recipe_desc'];
         echo "<tr>
@@ -36,19 +36,17 @@ function getPro(){
     global $con;
     $getProQuery = '';
     if(!isset($_GET['cat']) && !isset($_GET['brand']) && !isset($_GET['search'])){
-        $getProQuery = "select * from products order by RAND();";
+        $getProQuery = "select * from recipe order by RAND();";
     }
     else if(isset($_GET['cat'])){
         $pro_cat_id = $_GET['cat'];
-        $getProQuery = "select * from products where pro_cat = '$pro_cat_id'";
+        $getProQuery = "select * from recipe where recipe_cat = '$pro_cat_id'";
     }
     else if(isset($_GET['brand'])){
         $pro_brand_id = $_GET['brand'];
-        $getProQuery = "select * from products where pro_brand = '$pro_brand_id'";
+        $getProQuery = "select * from recipe where recipe_type = '$pro_brand_id'";
     }
-    else if(isset($_GET['search'])){
-        $user_query = $_GET['search'];
-        $getProQuery = "select * from products where pro_keywords like '%$user_query%'";
+
     }
     $getProResult = mysqli_query($con,$getProQuery);
     $count_pro = mysqli_num_rows($getProResult);
@@ -56,10 +54,9 @@ function getPro(){
         echo "<h4 class='alert-warning align-center my-2 p-2'> No Product found in selected criteria </h4>";
     }
     while($row = mysqli_fetch_assoc($getProResult)){
-        $pro_id = $row['pro_id'];
-        $pro_title = $row['pro_title'];
-        $pro_price = $row['pro_price'];
-        $pro_image = $row['pro_image'];
+        $pro_id = $row['recipe_id'];
+        $pro_title = $row['recipe_name'];
+        $pro_image = $row['recipe_images'];
         echo "
                 <div class='col-sm-6 col-md-4 col-lg-3 text-center product-summary'>
                     <h5 class='text-capitalize'>$pro_title</h5>
@@ -73,7 +70,7 @@ function getPro(){
                     </a>
                 </div>
         ";
-    }
+
 }
 
 /*function add_user()
