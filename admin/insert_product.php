@@ -27,7 +27,7 @@ if(isset($_POST['insert_pro'])){
 <form action="" method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
-            <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Item </span> Name:</label>
+            <label for="pro_title" class="float-md-right"> <span class="d-sm-none d-md-inline"> Recipe </span> Name:</label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
             <div class="input-group">
@@ -38,7 +38,7 @@ if(isset($_POST['insert_pro'])){
             </div>
         </div>
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
-            <label for="pro_cat" class="float-md-right"><span class="d-sm-none d-md-inline"> Product </span> Category:</label>
+            <label for="pro_cat" class="float-md-right"><span class="d-sm-none d-md-inline"> Recipe </span> Category:</label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4 mt-3 mt-lg-0">
             <div class="input-group">
@@ -84,7 +84,7 @@ if(isset($_POST['insert_pro'])){
             </div>
         </div>
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
-            <label for="pro_img" class="float-md-right"><span class="d-sm-none d-md-inline"> Product </span> Image:</label>
+            <label for="pro_img" class="float-md-right"><span class="d-sm-none d-md-inline"> Recipe </span> Image:</label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4 mt-3 mt-lg-0">
             <div class="input-group">
@@ -121,14 +121,14 @@ if(isset($_POST['insert_pro'])){
     </div>
     <div class="row my-3">
         <div class="d-none d-sm-block col-sm-3 col-md-4 col-lg-2 col-xl-2 mt-auto">
-            <label for="pro_desc" class="float-md-right"><span class="d-sm-none d-md-inline"> Product </span> Detail:</label>
+            <label for="pro_desc" class="float-md-right"><span class="d-sm-none d-md-inline"> Recipe </span> Detail:</label>
         </div>
         <div class="col-sm-9 col-md-8 col-lg-4 col-xl-4">
             <div class="input-group">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="far fa-comment-alt"></i></div>
                 </div>
-                <textarea class="form-control" type="file" id="recipe_desc" name="pro_desc" placeholder="Enter Product Detail"></textarea>
+                <textarea class="form-control" type="file" id="recipe_desc" name="pro_desc" placeholder="Enter Recipe Detail"></textarea>
             </div>
         </div>
     </div>
