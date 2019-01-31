@@ -2,6 +2,7 @@
 session_start();
 include ('db_connection.php');
 $error_msg = '';
+
 if(isset($_POST['login'])){
     $email = $_POST["user_email"];
     $pass = $_POST["user_password"];

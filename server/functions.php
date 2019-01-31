@@ -52,7 +52,6 @@ function getImages(){
         echo '<img src="/Project-Assignment/admin/product_images/'.$recipe_images.'" width="200" height="200" /> \r\n';
 
     }
-
 }
 
 /*function getPro(){

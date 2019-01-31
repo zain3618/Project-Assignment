@@ -1,3 +1,28 @@
+<?php require_once "server/db_connection.php"
+?>
+
+
+<?php
+
+global $con;
+
+if(isset($_POST['submit'])){
+
+$user_Em = $_POST['Email'];
+$user_pass = $_POST['Password'];
+$user_type = "user";
+
+$insert_user = "insert into users (user_email, user_password,user_type)
+VALUES ('$user_Em','$user_pass','$user_type');";
+
+$insert_cred = mysqli_query($con, $insert_user);
+if($insert_cred){
+header("location: ".$_SERVER['PHP_SELF']);
+}
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,9 +52,9 @@
     <form action="register.php" method="post">
 
     <p>Enter Your Email:</p>
-    <input type="email" class="forminput" name="Email" pattern="^[^_\.\?!@#$%\&*()\^]+\w+[\w-\.]*\@\w+\.*((-\w+)|(\w*))\.[a-z]{2,3}$" title="Wrong Email Format!">
+    <input type="email" class="forminput" id="user_email" name="Email" pattern="^[^_\.\?!@#$%\&*()\^]+\w+[\w-\.]*\@\w+\.*((-\w+)|(\w*))\.[a-z]{2,3}$" title="Wrong Email Format!">
     <p>Enter Your Password:</p>
-    <input type="text" class="forminput" name="Password" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
+    <input type="text" class="forminput" id="user_password" name="Password" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
 
 <input type="submit" name="submit">
 

@@ -15,55 +15,32 @@
 
 <?php require "header.php"?>
 
+<?php
+session_start();
+include ('server\db_connection.php');
+$error_msg = '';
 
-<!--<div class="form-area">
+if(isset($_POST['login'])){
+    $email = $_POST["user_email"];
+    $pass = $_POST["user_password"];
+    $sel_user = "select * from users where user_email='$email' AND user_password='$pass'";
+    $run_user = mysqli_query($con, $sel_user);
+    $check_user = mysqli_num_rows($run_user);
 
-    <div class="image-area">
-        <img src="img/chefavatar.png" alt="">
-    </div>
+    if($check_user==0){
+        $error_msg = 'Password or Email is wrong, try again';
+    }
+    else{
+        $_SESSION['user_email'] = $email;
 
-    <form action="register.php">
+            setcookie('user_email', $email, time() + (10 * 365 * 24 * 60 * 60));
+            setcookie('user_password', $pass, time() + (10 * 365 * 24 * 60 * 60));
 
+        }
+        header('location:index.php?logged_in=You have successfully logged in!');
 
-
-       <a>Email:</a> <input type="text" name="Signup-Email"
-        pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
-
-        <a>Password</a> <input type="text" name="Signup-Password"
-               pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
-
-        <input type="submit">
-    </form>
-
-
-
-</div>
--->
-
-<!--<div class="form-area">
-    <div class="image-area">
-        <img src="img/chefavatar.png" alt="">
-    </div>
-
-    <form action="register.php">
-
-        <p>Email <input type="text" name="Signup-Email"
-                             pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
-        </p>
-
-        <p>Password: <input type="text" name="Signup-Password"
-                               pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
-        </p>
-
-        <input type="submit">
-    </form>
-
-    <a href="forgotpassword.php" class="form-pass">Forgot Password?</a>
-
-</div>
--->
-
-
+}
+?>
 
 <div class="form-area">
 
@@ -76,9 +53,9 @@
     <form>
 
         <p>Enter Your Email:</p>
-        <input type="email" class="forminput" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
+        <input type="email" name="user_email" class="forminput" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
         <p>Enter Your Password:</p>
-        <input type="text" class="forminput" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
+        <input type="text" name="user_password" class="forminput" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
         <!--
             <a href="register.php" class ='form-btn'>
                 <span class="form-btn-text">Sign Up</span>
