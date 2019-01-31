@@ -27,6 +27,7 @@
         <tr>
             <td>ID</td>
             <td>Email</td>
+            <td>Type</td>
             <?php getUsers();?>
         </tr>
     </table>
@@ -39,9 +40,16 @@
             <td>Recipe</td>
             <td>Category</td>
             <td>Description</td>
+            <td>Type</td>
+            <td>Image</td>
             <?php getRecipes();?>
         </tr>
     </table>
+<!--
+<div class="product_image">
+    <?php /*getImages(); */?>
+</div>-->
+
 </div>
 
 </body>
