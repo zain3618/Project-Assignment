@@ -29,6 +29,7 @@ if(isset($_POST['login'])){
 
     if($check_user==0){
         $error_msg = 'Password or Email is wrong, try again';
+       echo $error_msg;
     }
     else{
         $_SESSION['user_email'] = $email;
