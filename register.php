@@ -1,24 +1,36 @@
-<?php require_once "server/db_connection.php"
-?>
 
-
+<?php require "header.php"?>
 <?php
-
+session_start();
+include ('server\db_connection.php');
+$error_msg = '';
 global $con;
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])) {
 
-$user_Em = $_POST['Email'];
-$user_pass = $_POST['Password'];
-$user_type = "user";
+    $user_Em = $_POST['Email'];
+    $user_pass = $_POST['Password'];
+    $user_type = "user";
 
-$insert_user = "insert into users (user_email, user_password,user_type)
-VALUES ('$user_Em','$user_pass','$user_type');";
+    $sel_user = "select * from users where user_email='$user_Em'";
+    $run_user = mysqli_query($con, $sel_user);
+    $check_user = mysqli_num_rows($run_user);
 
-$insert_cred = mysqli_query($con, $insert_user);
-if($insert_cred){
-header("location: ".$_SERVER['PHP_SELF']);
-}
+    $error_msg = "<p style='color:white;'> Email already exists, Try again </p>";
+
+    if ($check_user != 0) {
+
+        echo $error_msg;
+
+    } else {
+        $insert_user = "insert into users (user_email, user_password,user_type)
+                        VALUES ('$user_Em','$user_pass','$user_type');";
+
+        $insert_cred = mysqli_query($con, $insert_user);
+        if ($insert_cred) {
+            header("location: " . $_SERVER['PHP_SELF']);
+        }
+    }
 }
 ?>
 
@@ -38,7 +50,6 @@ header("location: ".$_SERVER['PHP_SELF']);
 
 <body>
 
-   <?php require "header.php"?>
     <?php require "server/functions.php" ?>
 
 <div class="form-area">
