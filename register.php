@@ -34,6 +34,25 @@ if(isset($_POST['submit'])) {
 }
 ?>
 
+<script>
+    function checkEmail(str) {
+        if (str.length == 0) {
+            document.getElementById("hint").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("hint").innerHTML = this.responseText;
+                }
+            };
+            xmlhttp.open("GET", "check_email.php?e=" + str, true);
+            xmlhttp.send();
+            //document.getElementById('hint').innerHTML = 'loading...';
+        }
+    }
+</script>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +82,8 @@ if(isset($_POST['submit'])) {
     <form action="register.php" method="post">
 
     <p>Enter Your Email:</p>
-    <input type="email" class="forminput" id="user_email" name="Email" pattern="^[^_\.\?!@#$%\&*()\^]+\w+[\w-\.]*\@\w+\.*((-\w+)|(\w*))\.[a-z]{2,3}$" title="Wrong Email Format!">
+    <input type="email" class="forminput" id="user_email" name="Email" pattern="^[^_\.\?!@#$%\&*()\^]+\w+[\w-\.]*\@\w+\.*((-\w+)|(\w*))\.[a-z]{2,3}$" title="Wrong Email Format!" onkeyup="checkEmail(this.value)">
+        <span class="text-danger" id="hint"></span>
     <p>Enter Your Password:</p>
     <input type="text" class="forminput" id="user_password" name="Password" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
 
