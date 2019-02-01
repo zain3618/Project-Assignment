@@ -54,7 +54,7 @@ if(isset($_POST['login'])){
     <form>
 
         <p>Enter Your Email:</p>
-        <input type="email" name="user_email" class="forminput" pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" title="Wrong Email Format!">
+        <input type="email" name="user_email" class="forminput" pattern="^[^_\.\?!@#$%\&*()\^]+\w+[\w-\.]*\@\w+\.*((-\w+)|(\w*))\.[a-z]{2,3}$" title="Wrong Email Format!">
         <p>Enter Your Password:</p>
         <input type="text" name="user_password" class="forminput" pattern="^(?=.*\d).{8,100}$" title="Password must be more than 8 digits long and include at least one numeric digit.">
         <!--
